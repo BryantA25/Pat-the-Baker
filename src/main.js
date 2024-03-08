@@ -15,13 +15,18 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            //debug: true,
             gravity: {
                 y: 1000
             }
         },
     },
-    scene: [ Load, Keys, Menu, Transition, Egg ]
+    scene: [ Load, Keys, Menu, Transition, Win, Egg ]
 }
 
 let game = new Phaser.Game(config)
+
+//globals
+const centerX = game.config.width / 2
+const centerY = game.config.height / 2
+let roundNumber = 1

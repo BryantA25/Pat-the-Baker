@@ -4,9 +4,13 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        console.log("Menu: create")
-        this.add.text(10, 10, "Menu Scene")
-        this.add.text(10, 30, "Press UP to enter Egg mini-game")
+        //console.log("Menu: create")
+
+        this.add.tileSprite(0, 0, 640, 480, 'trans1').setOrigin(0,0)
+
+        this.add.bitmapText(centerX, centerY-30, 'cartoonPink_font', "Pat the Baker DEMO", 60, ).setOrigin(0.5)
+        this.add.bitmapText(centerX, centerY+30, 'cartoonPink_font', "Press UP to start.", 30, ).setOrigin(0.5)
+
 
         //grab keyboard binding from keys scene
         this.KEYS = this.scene.get('sceneKeys').KEYS
@@ -16,8 +20,7 @@ class Menu extends Phaser.Scene {
         const { KEYS } = this
 
         if (KEYS.UP.isDown) {
-            console.log("up key pressed")
-            this.scene.start('sceneEgg')
+            this.scene.start('sceneTrans')
         }
     }
 }

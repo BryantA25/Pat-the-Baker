@@ -4,7 +4,7 @@ class Keys extends Phaser.Scene{
     }
 
     create() {
-        console.log("loaded key scene")
+        //console.log("loaded key scene")
         const { KeyCodes } = Phaser.Input.Keyboard
         this.KEYS = this.input.keyboard.addKeys({
             Confirm:    KeyCodes.Z,
@@ -17,7 +17,16 @@ class Keys extends Phaser.Scene{
         })
 
         // launch next scene so it will run concurrently with this one
-        console.log("made keys, opening menu scene")
+        //console.log("made keys, opening menu scene")
         this.scene.launch('sceneMenu')
     }
+
+    /*
+    update() {
+        const { KEYS } = this
+        if (KEYS.PAUSE.isDown) {
+            this.scene.start('sceneMenu')
+        }
+    }
+    */
 }
