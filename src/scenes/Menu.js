@@ -22,5 +22,13 @@ class Menu extends Phaser.Scene {
         if (KEYS.UP.isDown) {
             this.scene.start('sceneTrans')
         }
+
+        if (KEYS.LEFT.isDown) {
+            this.scene.start('sceneTutorial')
+        }
+
+        if(KEYS.RIGHT.isDown) {
+            this.scene.start('sceneCredits')
+        }
     }
 }

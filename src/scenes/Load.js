@@ -11,6 +11,13 @@ class Load extends Phaser.Scene {
 
         this.load.image('clock', 'clock.png')
 
+        this.load.spritesheet('keyAll', 'ArrowKey.png', {
+            frameWidth: 261,
+            frameHeight: 127,
+            startFrame: 0,
+            endFrame: 4
+        })
+
         this.load.spritesheet('eggScore', 'eggScore.png', {
             frameWidth: 227,
             frameHeight: 186,
@@ -27,8 +34,10 @@ class Load extends Phaser.Scene {
             frameWidth: 211,
             frameHeight: 341,
             startFrame: 0,
-            endFrame: 2
+            endFrame: 3
         })
+
+        this.load.spritesheet()
 
         // load sounds
         this.load.path = './assets/sounds/'
@@ -44,6 +53,27 @@ class Load extends Phaser.Scene {
 
     create() {
         // create animations
+
+        //key LR loop
+        this.anims.create({
+            key: 'keyLR-anim',
+            frameRate: 4,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('keyAll', {
+                frames: [2,4]
+            })
+        })
+
+        //key circle loop
+        this.anims.create({
+            key: 'keyLoop-anim',
+            frameRate: 8,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('keyAll', {
+                start: 1,
+                end: 4
+            })
+        })
 
         // Pat Basket Idle
         this.anims.create({
