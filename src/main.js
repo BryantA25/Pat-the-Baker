@@ -12,6 +12,9 @@ let config = {
     type: Phaser.AUTO,
     height: 480,
     width: 640,
+    scale: {
+        mode: Phaser.Scale.FIT
+    },
     physics: {
         default: 'arcade',
         arcade: {
@@ -21,7 +24,7 @@ let config = {
             }
         },
     },
-    scene: [ Load, Keys, Menu, Transition, Win, Egg ]
+    scene: [ Load, Keys, Menu, Tutorial, Credits, Transition, Win, Egg, Mixing ]
 }
 
 let game = new Phaser.Game(config)

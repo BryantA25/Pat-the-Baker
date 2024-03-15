@@ -4,7 +4,7 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        //console.log("Menu: create")
+        console.log("Menu: create")
 
         this.add.tileSprite(0, 0, 640, 480, 'trans1').setOrigin(0,0)
 

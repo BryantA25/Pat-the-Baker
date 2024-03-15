@@ -5,11 +5,13 @@ class Load extends Phaser.Scene {
 
     preload() {
         // load images
+        
         this.load.path = './assets/img/'
         this.load.image('egg', 'egg.png')
         this.load.image('yolk', 'yolk.png')
 
         this.load.image('clock', 'clock.png')
+
 
         this.load.spritesheet('keyAll', 'ArrowKey.png', {
             frameWidth: 261,
@@ -25,8 +27,16 @@ class Load extends Phaser.Scene {
             endFrame: 0
         })
 
+        this.load.spritesheet('bowlMix', 'bowlMix.png', {
+            frameWidth: 640,
+            frameHeight: 480,
+            startFrame: 0,
+            endFrame: 3
+        })
 
+        // backdrops
         this.load.image('eggBackdrop', 'eggBackdrop.png')
+        this.load.image('counterBackdrop', 'counterBackdrop.png')
         this.load.image('trans1', 'transition1.png')
         this.load.image('trans2', 'transition2.png')
 
@@ -36,8 +46,6 @@ class Load extends Phaser.Scene {
             startFrame: 0,
             endFrame: 3
         })
-
-        this.load.spritesheet()
 
         // load sounds
         this.load.path = './assets/sounds/'
@@ -74,6 +82,76 @@ class Load extends Phaser.Scene {
                 end: 4
             })
         })
+
+        this.anims.create({
+            key: 'keyUp-idle',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('keyAll', {
+                frames: [1]
+            })
+        })
+        this.anims.create({
+            key: 'keyLeft-idle',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('keyAll', {
+                frames: [2]
+            })
+        })
+        this.anims.create({
+            key: 'keyDown-idle',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('keyAll', {
+                frames: [3]
+            })
+        })
+        this.anims.create({
+            key: 'keyRight-idle',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('keyAll', {
+                frames: [4]
+            })
+        })
+
+        // bowl whisk anims
+        this.anims.create({
+            key: 'mix1-anim',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('bowlMix', {
+                frames: [0]
+            })
+        })
+        this.anims.create({
+            key: 'mix2-anim',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('bowlMix', {
+                frames: [1]
+            })
+        })
+        this.anims.create({
+            key: 'mix3-anim',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('bowlMix', {
+                frames: [2]
+            })
+        })
+        this.anims.create({
+            key: 'mix4-anim',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('bowlMix', {
+                frames: [3]
+            })
+        })
+        
+        
+        
 
         // Pat Basket Idle
         this.anims.create({
