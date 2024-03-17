@@ -24,7 +24,7 @@ let config = {
             }
         },
     },
-    scene: [ Load, Keys, Menu, Tutorial, Credits, Transition, Win, Egg, Mixing ]
+    scene: [ Load, Keys, Menu, Tutorial, Credits, Transition, Win, Egg, Mixing, Levels ]
 }
 
 let game = new Phaser.Game(config)
@@ -33,3 +33,5 @@ let game = new Phaser.Game(config)
 const centerX = game.config.width / 2
 const centerY = game.config.height / 2
 let roundNumber = 1
+
+let levelType = 0

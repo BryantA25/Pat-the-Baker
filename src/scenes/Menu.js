@@ -4,12 +4,12 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        console.log("Menu: create")
+        //console.log("Menu: create")
 
-        this.add.tileSprite(0, 0, 640, 480, 'trans1').setOrigin(0,0)
+        this.add.tileSprite(0, 0, 640, 480, 'counterBackdrop').setOrigin(0,0)
 
-        this.add.bitmapText(centerX, centerY-30, 'cartoonPink_font', "Pat the Baker DEMO", 60, ).setOrigin(0.5)
-        this.add.bitmapText(centerX, centerY+30, 'cartoonPink_font', "Press UP to start.", 30, ).setOrigin(0.5)
+        this.add.bitmapText(centerX, 100, 'cartoonPink_font', "Pat the Baker", 80, ).setOrigin(0.5)
+        this.add.bitmapText(centerX, centerY+30, 'cartoonPink_font', "Up: Level select.", 30, ).setOrigin(0.5)
 
 
         //grab keyboard binding from keys scene
@@ -19,15 +19,15 @@ class Menu extends Phaser.Scene {
     update() {
         const { KEYS } = this
 
-        if (KEYS.UP.isDown) {
-            this.scene.start('sceneTrans')
+        if (Phaser.Input.Keyboard.JustDown(KEYS.UP)) {
+            this.scene.start('sceneLevels')
         }
 
-        if (KEYS.LEFT.isDown) {
+        if (Phaser.Input.Keyboard.JustDown(KEYS.LEFT)) {
             this.scene.start('sceneTutorial')
         }
 
-        if(KEYS.RIGHT.isDown) {
+        if(Phaser.Input.Keyboard.JustDown(KEYS.RIGHT)) {
             this.scene.start('sceneCredits')
         }
     }

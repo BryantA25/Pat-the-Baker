@@ -6,10 +6,15 @@ class Mixing extends Phaser.Scene {
     init(){
         this.score = 0
         this.stage = 1
+        this.currentTime = 0
+        this.roundTime = 10
     }
 
     create() {
         this.add.tileSprite(0, 0, 640, 480, 'counterBackdrop').setOrigin(0,0)
+
+        // display current round
+        this.add.bitmapText(20, 20, 'cartoonPurple_font', "Round " + roundNumber, 40, ).setOrigin(0)
 
         //grab keyboard binding from keys scene
         this.KEYS = this.scene.get('sceneKeys').KEYS
@@ -18,16 +23,30 @@ class Mixing extends Phaser.Scene {
         this.scoreText = this.add.bitmapText(600,10, 'cartoonPink_font', this.score, 30)
 
         //key guide graphic
-        this.keysGuide = this.add.sprite(10, 10, 'keyAll', 0).setOrigin(0,0).setScale(0.75)
+        this.keysGuide = this.add.sprite(10, 375, 'keyAll', 0).setOrigin(0,0).setScale(0.75)
         this.keysGuide.play('keyUp-idle', true)
 
         //mixing bowl sprite
         this.bowl = this.add.sprite(0, 0, 'bowlMix', 0).setOrigin(0, 0)
         this.bowl.play('mix1-anim', true)
 
+        //clock and text
+        this.clockGraphic = this.add.image(550, 400, 'clock').setAlpha(0)
+        this.remainingTime = this.add.text(535, 375, '', {
+            fontFamily: 'Arial',
+            fontSize: 'bold',
+            fontSize: '50px',
+            color: '000000'
+        })
 
+        // main timer
+        this.clock = this.time.delayedCall(this.roundTime * 1000, ()=> {
 
+            this.sound.stopAll()
+            this.scene.start('sceneWin')
+            
 
+        }, null, this)
 
     }
 
@@ -63,8 +82,16 @@ class Mixing extends Phaser.Scene {
                 this.score += 1
             }
         }
-
-        this.scoreText.text = this.score 
+        
+        //score management
+        this.scoreText.text = this.score
+        
+        //time management
+        this.currentTime = Phaser.Math.RoundTo((this.roundTime - (this.roundTime * this.clock.getProgress())), 0)
+        if(this.currentTime <= 5 && this.currentTime >= 0) {
+            this.clockGraphic.setAlpha(1)
+            this.remainingTime.text = this.currentTime
+        }
         
     }
 }
