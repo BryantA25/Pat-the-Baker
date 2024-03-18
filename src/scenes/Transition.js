@@ -15,6 +15,7 @@ class Transition extends Phaser.Scene {
         // endless level management
         if (levelType == 0) {
             this.nextLevelType = Phaser.Math.Between(1,2) 
+            console.log('level type: ' + this.nextLevelType)
             
         }else { //level management
 

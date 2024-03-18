@@ -17,7 +17,7 @@ class Credits extends Phaser.Scene {
     update() {
         const { KEYS } = this
 
-        if (KEYS.DOWN.isDown) {
+        if (KEYS.BACK.isDown) {
             this.scene.start('sceneMenu')
         }
 

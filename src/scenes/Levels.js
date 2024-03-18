@@ -10,9 +10,9 @@ class Levels extends Phaser.Scene {
         this.add.bitmapText(20, 20, 'cartoonPink_font', "Level Select", 50, ).setOrigin(0,0)
 
         this.add.bitmapText(20, 70, 'cartoonPink_font', "UP: Endless", 20, ).setOrigin(0,0)
-        this.add.bitmapText(20, 100, 'cartoonPink_font', ": Scrambled Eggs", 20, ).setOrigin(0,0)
+        this.add.bitmapText(20, 100, 'cartoonPink_font', "LEFT: Scrambled Eggs", 20, ).setOrigin(0,0)
 
-        this.add.bitmapText(20, 20, 'cartoonPink_font', "DOWN: Back to Menu", 50, ).setOrigin(0,0)
+        this.add.bitmapText(20, 130, 'cartoonPink_font', "X: Back to Menu", 20, ).setOrigin(0,0)
 
 
         
@@ -35,7 +35,7 @@ class Levels extends Phaser.Scene {
             this.scene.start('sceneTrans')
         }
 
-        if (Phaser.Input.Keyboard.JustDown(KEYS.DOWN)) {    // return to Menu
+        if (Phaser.Input.Keyboard.JustDown(KEYS.BACK)) {    // return to Menu
             this.scene.start('sceneMenu')
         }
 

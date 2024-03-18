@@ -10,6 +10,8 @@ class Menu extends Phaser.Scene {
 
         this.add.bitmapText(centerX, 100, 'cartoonPink_font', "Pat the Baker", 80, ).setOrigin(0.5)
         this.add.bitmapText(centerX, centerY+30, 'cartoonPink_font', "Up: Level select.", 30, ).setOrigin(0.5)
+        this.add.bitmapText(centerX, centerY+60, 'cartoonPink_font', "LEFT: Tutorial", 30, ).setOrigin(0.5)
+        this.add.bitmapText(centerX, centerY+90, 'cartoonPink_font', "RIGHT: Credits", 30, ).setOrigin(0.5)
 
 
         //grab keyboard binding from keys scene
