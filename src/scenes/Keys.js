@@ -7,7 +7,7 @@ class Keys extends Phaser.Scene{
         //console.log("loaded key scene")
         const { KeyCodes } = Phaser.Input.Keyboard
         this.KEYS = this.input.keyboard.addKeys({
-            Confirm:    KeyCodes.Z,
+            CONFIRM:    KeyCodes.Z,
             BACK:       KeyCodes.X,
             UP:         KeyCodes.UP,
             DOWN:       KeyCodes.DOWN,

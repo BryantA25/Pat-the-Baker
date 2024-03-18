@@ -83,5 +83,11 @@ class Saute extends Phaser.Scene {
             this.clockGraphic.setAlpha(1)
             this.remainingTime.text = this.currentTime
         }
+
+        // Pause handling
+        if (KEYS.PAUSE.isDown) {
+            pausedScene = 'sceneSaute'
+            this.scene.launch('scenePause')
+        }
     }
 }

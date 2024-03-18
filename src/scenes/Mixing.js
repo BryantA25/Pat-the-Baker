@@ -93,5 +93,10 @@ class Mixing extends Phaser.Scene {
             this.remainingTime.text = this.currentTime
         }
         
+        // Pause handling
+        if (KEYS.PAUSE.isDown) {
+            pausedScene = 'sceneMixing'
+            this.scene.launch('scenePause')
+        }
     }
 }

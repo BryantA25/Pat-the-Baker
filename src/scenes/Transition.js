@@ -9,6 +9,9 @@ class Transition extends Phaser.Scene {
     }
 
     create() {
+        //grab keyboard binding from keys scene
+        this.KEYS = this.scene.get('sceneKeys').KEYS
+
         //transition background
         this.add.tileSprite(0, 0, 640, 480, 'trans1').setOrigin(0,0)
 
@@ -72,6 +75,16 @@ class Transition extends Phaser.Scene {
             loop: false
         })
 
+    }
+
+    update() {
+        const { KEYS } = this
+
+        // Pause handling
+        if (KEYS.PAUSE.isDown) {
+            pausedScene = 'sceneTrans'
+            this.scene.launch('scenePause')
+        }
     }
 
 

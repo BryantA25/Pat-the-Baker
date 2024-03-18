@@ -7,7 +7,6 @@ class Egg extends Phaser.Scene {
         this.score = 0
         this.currentTime = 0
         this.roundTime = 8
-        
     }
 
     create() {
@@ -110,9 +109,10 @@ class Egg extends Phaser.Scene {
             this.patBasket.x += 3
         }
 
-        // exit to main menu
+        // Pause handling
         if (KEYS.PAUSE.isDown) {
-            this.scene.start('sceneMenu')
+            pausedScene = 'sceneEgg'
+            this.scene.launch('scenePause')
         }
 
     }

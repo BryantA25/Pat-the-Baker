@@ -54,6 +54,7 @@ class Load extends Phaser.Scene {
         this.load.image('stoveBackdrop', 'stoveBackdrop.png')
         this.load.image('trans1', 'transition1.png')
         this.load.image('trans2', 'transition2.png')
+        this.load.image('blank', 'blank.png')
 
         this.load.spritesheet('patBasket', 'patBasket.png', {
             frameWidth: 211,
