@@ -1,17 +1,16 @@
-class Mixing extends Phaser.Scene {
+class Saute extends Phaser.Scene {
     constructor() {
-        super('sceneMixing')
+        super('sceneSaute')
     }
 
     init() {
         this.score = 0
-        this.stage = 1
-        this.currentTime = 0
         this.roundTime = 8
+        this.stage = 1
     }
 
     create() {
-        this.add.tileSprite(0, 0, 640, 480, 'counterBackdrop').setOrigin(0,0)
+        this.add.tileSprite(0, 0, 640, 480, 'stoveBackdrop').setOrigin(0,0)
 
         // display current round
         this.add.bitmapText(20, 20, 'cartoonPurple_font', "Round " + roundNumber, 40, ).setOrigin(0)
@@ -22,13 +21,16 @@ class Mixing extends Phaser.Scene {
         //score text graphic
         this.scoreText = this.add.bitmapText(600,10, 'cartoonPink_font', this.score, 30)
 
+        // Pat sprite
+        this.patPan = this.add.sprite(centerX, centerY, 'patPan', 1)
+
         //key guide graphic
         this.keysGuide = this.add.sprite(10, 375, 'keyAll', 0).setOrigin(0,0).setScale(0.75)
-        this.keysGuide.play('keyUp-idle', true)
+        this.keysGuide.play('keyLeft-idle', true)
 
-        //mixing bowl sprite
-        this.bowl = this.add.sprite(0, 0, 'bowlMix', 0).setOrigin(0, 0)
-        this.bowl.play('mix1-anim', true)
+        // fire animation
+        this.fireGraphic = this.add.sprite(225, 270, 'fire', 0)
+        this.fireGraphic.play('fire-anim', true)
 
         //clock and text
         this.clockGraphic = this.add.image(550, 400, 'clock').setAlpha(0)
@@ -48,41 +50,30 @@ class Mixing extends Phaser.Scene {
 
         }, null, this)
 
+
     }
 
-    update(){
+
+    update() {
         const { KEYS } = this
 
-        if (Phaser.Input.Keyboard.JustDown(KEYS.UP)) {
+
+        if (Phaser.Input.Keyboard.JustDown(KEYS.LEFT)) {
             if (this.stage == 1) {
                 this.stage += 1
-                this.keysGuide.play('keyLeft-idle', true)
-                this.bowl.play('mix2-anim', true)
-            }
-        }
-        if (Phaser.Input.Keyboard.JustDown(KEYS.LEFT)) {
-            if (this.stage == 2) {
-                this.stage += 1
-                this.keysGuide.play('keyDown-idle', true)
-                this.bowl.play('mix3-anim', true)
-            }
-        }
-        if (Phaser.Input.Keyboard.JustDown(KEYS.DOWN)) {
-            if (this.stage == 3) {
-                this.stage += 1
                 this.keysGuide.play('keyRight-idle', true)
-                this.bowl.play('mix4-anim', true)
+                this.patPan.play('patPanFront-anim', true)
             }
         }
         if (Phaser.Input.Keyboard.JustDown(KEYS.RIGHT)) {
-            if (this.stage == 4) {
+            if (this.stage == 2) {
                 this.stage = 1
-                this.keysGuide.play('keyUp-idle', true)
-                this.bowl.play('mix1-anim', true)
                 this.score += 1
+                this.keysGuide.play('keyLeft-idle', true)
+                this.patPan.play('patPanBack-anim', true)
             }
         }
-        
+
         //score management
         this.scoreText.text = this.score
         
@@ -92,6 +83,5 @@ class Mixing extends Phaser.Scene {
             this.clockGraphic.setAlpha(1)
             this.remainingTime.text = this.currentTime
         }
-        
     }
 }

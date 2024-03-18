@@ -34,9 +34,24 @@ class Load extends Phaser.Scene {
             endFrame: 3
         })
 
+        this.load.spritesheet('patPan', 'patPan.png', {
+            frameWidth: 311,
+            frameHeight: 294,
+            startFrame: 0,
+            endFrame: 1
+        })
+
+        this.load.spritesheet('fire', 'fire.png', {
+            frameWidth: 44,
+            frameHeight: 12,
+            startFrame: 0,
+            endFrame: 1
+        })
+
         // backdrops
         this.load.image('eggBackdrop', 'eggBackdrop.png')
         this.load.image('counterBackdrop', 'counterBackdrop.png')
+        this.load.image('stoveBackdrop', 'stoveBackdrop.png')
         this.load.image('trans1', 'transition1.png')
         this.load.image('trans2', 'transition2.png')
 
@@ -178,6 +193,38 @@ class Load extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('eggScore', {start: 0, end: 0, first: 0}),
             frameRate: 3,
             repeat: -1
+        })
+
+        // Pat pan forward
+        this.anims.create({
+            key: 'patPanFront-anim',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('patPan', {
+                frames: [0]
+            })
+        })
+
+        // Pat Pan back
+        this.anims.create({
+            key: 'patPanBack-anim',
+            frameRate: 0,
+            repeat: 0,
+            frames: this.anims.generateFrameNumbers('patPan', {
+                frames: [1]
+            })
+        })
+
+        // fire animation
+        this.anims.create({
+            key: 'fire-anim',
+            frameRate: 8,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('fire', {
+                start: 0,
+                end: 1,
+                first: 0
+            })
         })
 
         //console.log("loaded assets, opening key scene")

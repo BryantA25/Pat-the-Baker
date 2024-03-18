@@ -6,7 +6,7 @@ class Egg extends Phaser.Scene {
     init() {
         this.score = 0
         this.currentTime = 0
-        this.roundTime = 15
+        this.roundTime = 8
         
     }
 
@@ -70,7 +70,7 @@ class Egg extends Phaser.Scene {
 
         }, null, this)
 
-        this.panicTimer = this.time.delayedCall((this.roundTime - 5) * 1000, ()=> {
+        this.panicTimer = this.time.delayedCall((this.roundTime - 3) * 1000, ()=> {
             
 
             this.eggTimer = this.time.addEvent({
@@ -92,7 +92,7 @@ class Egg extends Phaser.Scene {
 
         //time management
         this.currentTime = Phaser.Math.RoundTo((this.roundTime - (this.roundTime * this.clock.getProgress())), 0)
-        if(this.currentTime <= 5 && this.currentTime >= 0) {
+        if(this.currentTime <= 3 && this.currentTime >= 0) {
             this.clockGraphic.setAlpha(1)
             this.remainingTime.text = this.currentTime
         }
