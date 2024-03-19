@@ -19,7 +19,7 @@ class Saute extends Phaser.Scene {
         this.KEYS = this.scene.get('sceneKeys').KEYS
 
         //score text graphic
-        this.scoreText = this.add.bitmapText(500,10, 'cartoonPink_font', "Score: " + this.score, 30)
+        this.scoreText = this.add.bitmapText(490,10, 'cartoonPink_font', "Score: " + this.score, 30)
 
         // Pat sprite
         this.patPan = this.add.sprite(centerX, centerY, 'patPan', 1)
@@ -78,7 +78,7 @@ class Saute extends Phaser.Scene {
         }
 
         //score management
-        this.scoreText.text = this.score
+        this.scoreText.text = "Score: " + this.score
         
         //time management
         this.currentTime = Phaser.Math.RoundTo((this.roundTime - (this.roundTime * this.clock.getProgress())), 0)

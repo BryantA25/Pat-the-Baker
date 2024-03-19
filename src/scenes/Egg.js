@@ -20,7 +20,11 @@ class Egg extends Phaser.Scene {
         // display current round
         this.add.bitmapText(20, 20, 'cartoonPurple_font', "Round " + roundNumber, 40, ).setOrigin(0)
 
+        //score text graphic
+        this.scoreText = this.add.bitmapText(490, 10, 'cartoonPink_font', "Score: " + this.score, 30,)
+
         // egg score graphic
+        /*
         this.eggScoreGraphic = this.add.sprite(410, 5, 'eggScore', 0).setOrigin(0)
         this.scoreText = this.add.text(555, 75, this.score, {
             fontFamily: 'Arial',
@@ -28,6 +32,7 @@ class Egg extends Phaser.Scene {
             fontSize: '40px',
             color: '2d32ff'
         })
+        */
 
         //clock and text
         this.clockGraphic = this.add.image(550, 400, 'clock').setAlpha(0)
@@ -125,6 +130,8 @@ class Egg extends Phaser.Scene {
             this.scene.launch('scenePause')
         }
 
+        this.scoreText.text = "Score: " + this.score
+
     }
 
     launchEgg() {
@@ -138,7 +145,7 @@ class Egg extends Phaser.Scene {
         this.physics.add.collider(egg, this.patBasket, () => {
             this.score += 1
             //console.log(this.score)
-            this.scoreText.text = this.score
+            //this.scoreText.text = this.score
             egg.destroy()
         })
     }

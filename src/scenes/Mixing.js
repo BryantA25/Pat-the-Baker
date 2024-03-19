@@ -14,13 +14,13 @@ class Mixing extends Phaser.Scene {
         this.add.tileSprite(0, 0, 640, 480, 'counterBackdrop').setOrigin(0,0)
 
         // display current round
-        this.add.bitmapText(20, 20, 'cartoonPurple_font', "Round " + roundNumber, 40, ).setOrigin(0)
+        this.roundIndicator = this.add.bitmapText(20, 20, 'cartoonPurple_font', "Round " + roundNumber, 40, ).setOrigin(0, 0)
 
         //grab keyboard binding from keys scene
         this.KEYS = this.scene.get('sceneKeys').KEYS
 
         //score text graphic
-        this.scoreText = this.add.bitmapText(500,10, 'cartoonPink_font', "Score: " + this.score, 30,)
+        this.scoreText = this.add.bitmapText(490, 10, 'cartoonPink_font', "Score: " + this.score, 30,)
 
         //key guide graphic
         this.keysGuide = this.add.sprite(10, 375, 'keyAll', 0).setOrigin(0,0).setScale(0.75)
@@ -89,7 +89,7 @@ class Mixing extends Phaser.Scene {
         }
         
         //score management
-        this.scoreText.text = this.score
+        this.scoreText.text = "Score: " + this.score
         
         //time management
         this.currentTime = Phaser.Math.RoundTo((this.roundTime - (this.roundTime * this.clock.getProgress())), 0)

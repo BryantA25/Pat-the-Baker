@@ -20,7 +20,7 @@ class Keys extends Phaser.Scene{
         //console.log("made keys, opening menu scene")
 
         //music handling
-        this.backgroundMusic = this.sound.add('musicTemp')
+        this.backgroundMusic = this.sound.add('music')
         this.backgroundMusic.play()
         this.backgroundMusic.loop = true
 
