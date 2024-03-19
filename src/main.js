@@ -3,6 +3,14 @@ Final Project
 Name: Bryant Aberin
 Game Title: Pat the Baker
 Time Spent: ~60 Hours
+Phaser components used:
+- Gravity
+- Arcade Physics
+- Animation management
+- Bitmap Text
+- Timers
+- 
+
 */
 
 'use strict'
