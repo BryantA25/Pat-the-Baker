@@ -2,7 +2,7 @@
 Final Project
 Name: Bryant Aberin
 Game Title: Pat the Baker
-Time Spent: 
+Time Spent: ~60 Hours
 */
 
 'use strict'
