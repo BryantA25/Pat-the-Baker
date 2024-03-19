@@ -89,7 +89,7 @@ class Load extends Phaser.Scene {
         //key LR loop
         this.anims.create({
             key: 'keyLR-anim',
-            frameRate: 4,
+            frameRate: 8,
             repeat: -1,
             frames: this.anims.generateFrameNumbers('keyAll', {
                 frames: [2,4]

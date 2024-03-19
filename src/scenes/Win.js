@@ -22,7 +22,7 @@ class Win extends Phaser.Scene {
 
             this.levelEnd = true
             this.finalScore = ((score1 + score2 + score3) / 3)
-            console.log("final score: " + this.finalScore)
+            //console.log("final score: " + this.finalScore)
 
             // rank calculator
             if(this.finalScore >= 1 && score1 >= 1 && score2 >= 1 && score3 >= 1) {
