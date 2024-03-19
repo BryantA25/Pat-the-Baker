@@ -5,9 +5,9 @@ class Credits extends Phaser.Scene {
 
     create() {
 
-        //this.add.tileSprite(0, 0, 640, 480, 'counterBackdrop').setOrigin(0,0)
+        this.add.tileSprite(0, 0, 640, 480, 'credits').setOrigin(0,0)
 
-        this.add.bitmapText(10, 10, 'cartoonPink_font', "Credits", 50, ).setOrigin(0,0)
+        this.add.bitmapText(10, 10, 'cartoonPink_font', "Press X to go back", 30, ).setOrigin(0,0)
         
 
         //grab keyboard binding from keys scene
