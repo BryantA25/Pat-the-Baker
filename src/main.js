@@ -24,7 +24,7 @@ let config = {
             }
         },
     },
-    scene: [ Load, Keys, Menu, Tutorial, Credits, Levels, Transition, Pause, Win, Egg, Mixing, Saute]
+    scene: [ Load, Keys, Menu, Tutorial, Credits, Levels, Transition, Pause, Win, Lose, Egg, Mixing, Saute]
 }
 
 let game = new Phaser.Game(config)

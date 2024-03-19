@@ -9,8 +9,8 @@ class Load extends Phaser.Scene {
         this.load.path = './assets/img/'
         this.load.image('egg', 'egg.png')
         this.load.image('yolk', 'yolk.png')
-
         this.load.image('clock', 'clock.png')
+        this.load.image('scrambledEggs', 'scrambledEggs.png')
 
 
         this.load.spritesheet('keyAll', 'ArrowKey.png', {
@@ -70,6 +70,12 @@ class Load extends Phaser.Scene {
         this.load.audio('sfx-crack', 'crack.mp3')
         this.load.audio('sfx-tick', 'tick.mp3')
         this.load.audio('sfx-pop', 'pop.mp3')
+        this.load.audio('sfx-successShort', 'successShort.mp3')
+        this.load.audio('sfx-successLong', 'successLong.mp3')
+
+        // load music
+        this.load.path = './assets/music/'
+        this.load.audio('musicTemp', 'George Street Shuffle.mp3')
 
         // load fonts
         this.load.path = './assets/'

@@ -51,14 +51,17 @@ class Transition extends Phaser.Scene {
         //console.log("level name: " + this.nextLevelName)
 
         //text management
-        this.add.bitmapText(centerX, centerY-70, 'cartoonPink_font', "ROUND START", 64, ).setOrigin(0.5)
+        
         if (this.nextLevelType == 1) {      //egg catching tutorial
+            this.add.bitmapText(centerX, centerY-70, 'cartoonPink_font', "CATCH EGGS!", 64, ).setOrigin(0.5)
             this.add.bitmapText(centerX, centerY, 'cartoonPink_font', "Use the LEFT and RIGHT to move", 30, ).setOrigin(0.5)
             this.add.bitmapText(centerX, centerY+30, 'cartoonPink_font', "Catch the eggs with the basket!", 30, ).setOrigin(0.5)
         } else if (this.nextLevelType == 2) {   // mixing level tutorial
+            this.add.bitmapText(centerX, centerY-70, 'cartoonPink_font', "GET WHISKING", 64, ).setOrigin(0.5)
             this.add.bitmapText(centerX, centerY, 'cartoonPink_font', "Press the keys in order", 30, ).setOrigin(0.5)
             this.add.bitmapText(centerX, centerY+30, 'cartoonPink_font', "Whisk the ingredients!", 30, ).setOrigin(0.5)
         } else if (this.nextLevelType == 3) {   // saute level tutorial
+            this.add.bitmapText(centerX, centerY-70, 'cartoonPink_font', "GET COOKIN\'", 64, ).setOrigin(0.5)
             this.add.bitmapText(centerX, centerY, 'cartoonPink_font', "Press the right keys", 30, ).setOrigin(0.5)
             this.add.bitmapText(centerX, centerY+30, 'cartoonPink_font', "Cook the ingredients in the Pan", 30, ).setOrigin(0.5)
         }

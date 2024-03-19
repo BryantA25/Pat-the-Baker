@@ -20,7 +20,7 @@ class Mixing extends Phaser.Scene {
         this.KEYS = this.scene.get('sceneKeys').KEYS
 
         //score text graphic
-        this.scoreText = this.add.bitmapText(600,10, 'cartoonPink_font', this.score, 30)
+        this.scoreText = this.add.bitmapText(500,10, 'cartoonPink_font', "Score: " + this.score, 30,)
 
         //key guide graphic
         this.keysGuide = this.add.sprite(10, 375, 'keyAll', 0).setOrigin(0,0).setScale(0.75)
@@ -44,10 +44,10 @@ class Mixing extends Phaser.Scene {
 
             //record score
 
-            score2 = (this.score / 20)
-            console.log("score2: " + score2)
+            score2 = (this.score / 18)
+            //console.log("score2: " + score2)
 
-            this.sound.stopAll()
+            //this.sound.stopAll()
             this.scene.start('sceneWin')
             
 

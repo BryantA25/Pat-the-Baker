@@ -7,7 +7,7 @@ class Tutorial extends Phaser.Scene {
 
         this.add.tileSprite(0, 0, 640, 480, 'tutorial').setOrigin(0,0)
 
-        //this.add.bitmapText(10, 10, 'cartoonPink_font', "Tutorial", 30, ).setOrigin(0,0)
+        this.add.bitmapText(10, 10, 'cartoonPink_font', "Press X to go back", 30, ).setOrigin(0,0)
         
 
         //grab keyboard binding from keys scene

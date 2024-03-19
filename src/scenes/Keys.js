@@ -18,6 +18,13 @@ class Keys extends Phaser.Scene{
 
         // launch next scene so it will run concurrently with this one
         //console.log("made keys, opening menu scene")
+
+        //music handling
+        this.backgroundMusic = this.sound.add('musicTemp')
+        this.backgroundMusic.play()
+        this.backgroundMusic.loop = true
+
+
         this.scene.launch('sceneMenu')
     }
 

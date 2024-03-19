@@ -62,13 +62,19 @@ class Egg extends Phaser.Scene {
         // main timer
         this.clock = this.time.delayedCall(this.roundTime * 1000, ()=> {
 
-            // record score
-            score1 = (this.score / 20)
 
-            console.log("score1: " + score1)
+            if (this.score <= 0) {
+                this.scene.start('sceneLose')
+            } else {
 
-            this.sound.stopAll()
-            this.scene.start('sceneWin')
+                // record score
+                score1 = (this.score / 20)
+
+                //console.log("score1: " + score1)
+
+                //this.sound.stopAll()
+                this.scene.start('sceneWin')
+            }
             
 
         }, null, this)
