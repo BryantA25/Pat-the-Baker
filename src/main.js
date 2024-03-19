@@ -9,7 +9,6 @@ Phaser components used:
 - Animation management
 - Bitmap Text
 - Timers
-- 
 
 */
 
