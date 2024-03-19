@@ -18,7 +18,7 @@ class Transition extends Phaser.Scene {
         // endless level management
         if (levelType == 0) {
             this.nextLevelType = Phaser.Math.Between(1,2) 
-            console.log('level type: ' + this.nextLevelType)
+            //console.log('level type: ' + this.nextLevelType)
             
         }else { //level management
 
@@ -47,8 +47,8 @@ class Transition extends Phaser.Scene {
             this.nextLevelName = 'sceneSaute'
         }
 
-        console.log("Level type: " + this.nextLevelType)
-        console.log("level name: " + this.nextLevelName)
+        //console.log("Level type: " + this.nextLevelType)
+        //console.log("level name: " + this.nextLevelName)
 
         //text management
         this.add.bitmapText(centerX, centerY-70, 'cartoonPink_font', "ROUND START", 64, ).setOrigin(0.5)

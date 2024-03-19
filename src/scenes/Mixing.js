@@ -42,6 +42,11 @@ class Mixing extends Phaser.Scene {
         // main timer
         this.clock = this.time.delayedCall(this.roundTime * 1000, ()=> {
 
+            //record score
+
+            score2 = (this.score / 20)
+            console.log("score2: " + score2)
+
             this.sound.stopAll()
             this.scene.start('sceneWin')
             

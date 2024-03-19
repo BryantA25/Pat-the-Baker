@@ -55,6 +55,7 @@ class Load extends Phaser.Scene {
         this.load.image('trans1', 'transition1.png')
         this.load.image('trans2', 'transition2.png')
         this.load.image('blank', 'blank.png')
+        this.load.image('tutorial', 'tutorial.png')
 
         this.load.spritesheet('patBasket', 'patBasket.png', {
             frameWidth: 211,
@@ -68,6 +69,7 @@ class Load extends Phaser.Scene {
         this.load.audio('sfx-cluck', 'cluck.mp3')
         this.load.audio('sfx-crack', 'crack.mp3')
         this.load.audio('sfx-tick', 'tick.mp3')
+        this.load.audio('sfx-pop', 'pop.mp3')
 
         // load fonts
         this.load.path = './assets/'

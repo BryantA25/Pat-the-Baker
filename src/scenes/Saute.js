@@ -44,6 +44,9 @@ class Saute extends Phaser.Scene {
         // main timer
         this.clock = this.time.delayedCall(this.roundTime * 1000, ()=> {
 
+            score3 = this.score / 60
+            console.log("score3: " + score3)
+
             this.sound.stopAll()
             this.scene.start('sceneWin')
             

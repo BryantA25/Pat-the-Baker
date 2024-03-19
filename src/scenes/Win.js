@@ -1,5 +1,3 @@
-const { DOWN } = require("phaser")
-
 class Win extends Phaser.Scene {
     constructor() {
         super('sceneWin')
@@ -7,6 +5,8 @@ class Win extends Phaser.Scene {
 
     init() {
         this.levelEnd = false
+        this.finalScore
+        this.rank = ''
     }
 
     create() {
@@ -17,8 +17,29 @@ class Win extends Phaser.Scene {
         this.add.tileSprite(0, 0, 640, 480, 'trans2').setOrigin(0,0)
 
         if (roundNumber == 3 && levelType == 1) {
-            this.add.bitmapText(centerX, centerY-70, 'cartoonPurple_font', "Congradulations!", 64, ).setOrigin(0.5)
-            this.add.bitmapText(centerX, centerY, 'cartoonPurple_font', "You made Scrambled Eggs!", 30, ).setOrigin(0.5)
+            this.levelEnd = true
+            this.finalScore = ((score1 + score2 + score3) / 3)
+            console.log("final score: " + this.finalScore)
+
+            // rank calculator
+            if(this.finalScore >= 1 && score1 >= 1 && score2 >= 1 && score3 >= 1) {
+                this.rank = 'P'
+            } else if (this.finalScore > 0.99) {
+                this.rank = 'S'
+            } else if (this.finalScore <= 0.99 && this.finalScore >= 0.9) {
+                this.rank = 'A'
+            } else if (this.finalScore < 0.9 && this.finalScore >= 0.8) {
+                this.rank = 'B'
+            } else if (this.finalScore < 0.8 && this.finalScore >= 0.7) {
+                this.rank = 'C'
+            } else if (this.finalScore < 0.7) {
+                this.rank = 'D'
+            }
+
+
+            this.add.bitmapText(centerX, 30, 'cartoonPurple_font', "Congradulations!", 64, ).setOrigin(0.5)
+            this.add.bitmapText(centerX, 80, 'cartoonPurple_font', "You made Scrambled Eggs!", 30, ).setOrigin(0.5)
+            this.add.bitmapText(centerX, 400, 'cartoonPurple_font', "Rank: " + this.rank, 50, ).setOrigin(0.5)
             
 
         } else {
@@ -33,7 +54,7 @@ class Win extends Phaser.Scene {
 
         roundNumber += 1
 
-        if (this.levelEnd = false) {
+        if (this.levelEnd == false) {
             this.clock = this.time.addEvent({
                 delay: 3000,
                 callback: this.switchScene,

@@ -6,7 +6,7 @@ class Egg extends Phaser.Scene {
     init() {
         this.score = 0
         this.currentTime = 0
-        this.roundTime = 8
+        this.roundTime = 10
     }
 
     create() {
@@ -52,28 +52,32 @@ class Egg extends Phaser.Scene {
 
         //egg summon timer
         this.eggTimer = this.time.addEvent({
-            delay: 1000,
+            delay: 500,
             callback: this.launchEgg,
             callbackScope: this,
-            repeat: 9
+            repeat: 10
             //loop: true
         })
 
         // main timer
         this.clock = this.time.delayedCall(this.roundTime * 1000, ()=> {
 
+            // record score
+            score1 = (this.score / 20)
+
+            console.log("score1: " + score1)
+
             this.sound.stopAll()
             this.scene.start('sceneWin')
             
-            //this.add.text(10, 30, "Egg minigame over")
 
         }, null, this)
 
-        this.panicTimer = this.time.delayedCall((this.roundTime - 3) * 1000, ()=> {
-            
+        this.panicTimer = this.time.delayedCall((this.roundTime - 5) * 1000, ()=> {
+            this.sound.play('sfx-cluck')            
 
             this.eggTimer = this.time.addEvent({
-                delay: 500,
+                delay: 250,
                 callback: this.launchEgg,
                 callbackScope: this,
                 loop: true
@@ -119,7 +123,7 @@ class Egg extends Phaser.Scene {
 
     launchEgg() {
         let egg = this.physics.add.image(150, 270, 'egg').setVelocity(Phaser.Math.Between(50,200), Phaser.Math.Between(-800,-600))
-        this.sound.play('sfx-cluck')
+        this.sound.play('sfx-pop')
         this.physics.add.collider(egg, this.ground, () => {
             this.add.image(egg.x, egg.y, 'yolk')
             this.sound.play('sfx-crack')

@@ -38,4 +38,3 @@ let levelType = 0
 let score1 = 0
 let score2 = 0
 let score3 = 0
-let finalScore = 0
